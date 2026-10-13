@@ -1,3 +1,5 @@
+package ru.oleynikov.node;
+
 public class Node {
     private int value;
     private Node parent;

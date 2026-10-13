@@ -1,3 +1,5 @@
+package ru.oleynikov.employeedepartment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class Department {
     public void setHead(Employee head) throws RuntimeException {
         if (head.getDepartment() == this) {
             this.head = head;
-        } else throw new RuntimeException("Employee doesn't work at this department.");
+        } else throw new RuntimeException("The employee doesn't work at this department.");
     }
 
     public Employee getHead() {

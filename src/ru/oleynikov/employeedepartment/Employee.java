@@ -1,3 +1,5 @@
+package ru.oleynikov.employeedepartment;
+
 public class Employee {
     private String name;
     private Department department;

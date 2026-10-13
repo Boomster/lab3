@@ -1,3 +1,5 @@
+package ru.oleynikov.points;
+
 public class Dot2 {
     private double x;
     private double y;
@@ -13,6 +15,10 @@ public class Dot2 {
      public Dot2(double x, double y){
         this.x = x;
         this.y = y;
+     }
+
+     public boolean equals(Dot2 dot) {
+        return this.getX() == dot.getX() && this.getY() == dot.getY();
      }
 
     @Override

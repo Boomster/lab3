@@ -1,3 +1,5 @@
+package ru.oleynikov.time;
+
 public class Time {
     private final int hours;
     private final int minutes;

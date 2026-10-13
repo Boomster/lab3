@@ -1,3 +1,5 @@
+package ru.oleynikov.points;
+
 public class Dot3 extends Dot2 {
     private double z;
 
@@ -8,6 +10,10 @@ public class Dot3 extends Dot2 {
     public Dot3(double x, double y, double z){
         super(x, y);
         this.z = z;
+    }
+
+    public boolean equals(Dot3 dot) {
+        return this.getX() == dot.getX() && this.getY() == dot.getY() && this.getZ() == dot.getZ();
     }
 
     @Override
