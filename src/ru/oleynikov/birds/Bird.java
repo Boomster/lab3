@@ -1,5 +1,5 @@
 package ru.oleynikov.birds;
 
-public interface Bird {
-    void sing();
+public abstract class Bird {
+    abstract public void sing();
 }

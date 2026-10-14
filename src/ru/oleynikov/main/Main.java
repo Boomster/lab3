@@ -1,5 +1,7 @@
 package ru.oleynikov.main;
 import ru.oleynikov.birds.*;
+import ru.oleynikov.node.Node;
+import ru.oleynikov.points.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,8 +11,8 @@ public class Main {
         //1.2+
         //1.11+
         //2.4+
-        /*
-        ru.Oleynikov.node.Node binarynode = new ru.Oleynikov.node.Node();
+
+        Node binarynode = new Node();
         binarynode.addValue(3);
         binarynode.addValue(5);
         binarynode.addValue(4);
@@ -18,10 +20,16 @@ public class Main {
         binarynode.addValue(1);
         binarynode.addValue(2);
         System.out.println(binarynode.toString());
-        */
+        System.out.println(binarynode.checkValue(5));
+        binarynode.deleteValue(5);
+        binarynode.deleteValue(8);
+        binarynode.deleteValue(5);
+        System.out.println(binarynode.toString());
+        System.out.println(binarynode.checkValue(5));
+
         //3.5+
         /*
-        ru.Oleynikov.points.Dot3 test = new ru.Oleynikov.points.Dot3(2., 3.5, -1.4);
+        Dot3 test = new Dot3(2., 3.5, -1.4);
         System.out.println(test.toString());
         */
         //4.3+

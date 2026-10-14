@@ -2,7 +2,7 @@ package ru.oleynikov.birds;
 
 import java.util.Random;
 
-public class Parrot implements Bird{
+public class Parrot extends Bird{
     private String text;
 
     public void sing(){

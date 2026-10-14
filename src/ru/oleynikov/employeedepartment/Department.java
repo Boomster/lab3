@@ -17,7 +17,7 @@ public class Department {
         this.employees = new ArrayList<>();
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
@@ -27,7 +27,7 @@ public class Department {
         } else throw new RuntimeException("The employee doesn't work at this department.");
     }
 
-    public Employee getHead() {
+    protected Employee getHead() {
         return head;
     }
 
@@ -38,7 +38,7 @@ public class Department {
         }
     }
 
-    public List<Employee> getEmployees() {
+    protected List<Employee> getEmployees() {
         return employees;
     }
 

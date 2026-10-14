@@ -34,7 +34,7 @@ public class Node {
         }
     }
 
-    public int getDeleteMaxLeft(){
+    private int getDeleteMaxLeft(){
         if (this.rightchild != null){
             return this.rightchild.getDeleteMaxRight();
         } else {
@@ -43,7 +43,7 @@ public class Node {
         }
     }
 
-    public int getDeleteMaxRight(){
+    private int getDeleteMaxRight(){
         if (this.rightchild != null){
             return this.rightchild.getDeleteMaxRight();
         } else {
@@ -53,7 +53,9 @@ public class Node {
     }
 
     public void deleteValue(int value){
-        if (this.value == value) {
+        if (!this.initialized){
+            System.out.println("Nodes are empty, nothing to delete");
+        } else if (this.value == value) {
             if (this.leftchild == null && this.rightchild == null){//if leaf
                if (this.parent != null){
                    if (value > this.parent.value){
@@ -74,9 +76,17 @@ public class Node {
             }
         } else {
             if (value > this.value){
-                this.rightchild.deleteValue(value);
+                if (this.rightchild != null) {
+                    this.rightchild.deleteValue(value);
+                } else {
+                    System.out.println("No node with value: " + value);
+                }
             } else {
-                this.leftchild.deleteValue(value);
+                if (this.leftchild != null) {
+                    this.leftchild.deleteValue(value);
+                } else {
+                    System.out.println("No node with value: " + value);
+                }
             }
         }
     }

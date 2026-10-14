@@ -1,5 +1,7 @@
 package ru.oleynikov.employeedepartment;
 
+import java.util.List;
+
 public class Employee {
     private String name;
     private Department department;
@@ -13,19 +15,19 @@ public class Employee {
         this.name = name;
     }
 
-    public void setDepartment(Department department) {
+    protected void setDepartment(Department department) {
         this.department = department;
     }
 
-    public Department getDepartment() {
+    protected Department getDepartment() {
         return department;
     }
 
-    public String getColleagues(){
-        return this.department.toString();
+    public List<Employee> getColleagues(){
+        return this.department.getEmployees();
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
