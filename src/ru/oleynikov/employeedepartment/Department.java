@@ -35,10 +35,12 @@ public class Department {
         if (employee.getDepartment() == null) {
             employees.add(employee);
             employee.setDepartment(this);
+        } else {
+            System.out.println("The employee is already working at " + employee.getDepartment().getName() + " department.");
         }
     }
 
-    protected List<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
