@@ -1,4 +1,4 @@
-package ru.oleynikov.main;
+package ru.oleynikov.inputs;
 
 import java.util.Scanner;
 
