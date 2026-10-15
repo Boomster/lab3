@@ -1,16 +1,13 @@
 package ru.oleynikov.employeedepartment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Department {
     private String name;
     private Employee head;
     private List<Employee> employees;
-
-    private boolean isEmployee(Employee employee){
-        return employees.contains(employee);
-    }
 
     public Department(String name){
         this.name = name;
@@ -40,8 +37,17 @@ public class Department {
         }
     }
 
+    public void removeEmployee(Employee employee){
+        if(this.head == employee){
+            System.out.println("Cannot remove head of department.");
+        } else {
+            this.employees.remove(employee);
+            employee.setDepartment(null);
+        }
+    }
+
     public List<Employee> getEmployees() {
-        return employees;
+        return new ArrayList<>(this.employees);
     }
 
     @Override

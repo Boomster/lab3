@@ -6,11 +6,6 @@ public class Employee {
     private String name;
     private Department department;
 
-    public Employee(String name, Department department){
-        this.name = name;
-        department.addEmployee(this);
-    }
-
     public Employee(String name){
         this.name = name;
     }
