@@ -1,6 +1,4 @@
-package ru.oleynikov.main;
-
-import ru.oleynikov.birds.Bird;
+package ru.oleynikov.birds;
 
 import java.util.ArrayList;
 import java.util.List;
