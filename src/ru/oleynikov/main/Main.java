@@ -40,7 +40,10 @@ public class Main {
         System.out.println(itdepartment);
         System.out.println(hrdepartment);
 
+        employee2.setDepartment(null);
+
         hrdepartment.addEmployee(employee1);
+
         employee1.setDepartment(null);
         hrdepartment.addEmployee(employee1);
 
