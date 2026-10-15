@@ -8,7 +8,7 @@ public class Department {
     private Employee head;
     private List<Employee> employees;
 
-    private boolean isEmployee(Employee employee){
+    public boolean isEmployee(Employee employee){
         return employees.contains(employee);
     }
 
@@ -17,17 +17,19 @@ public class Department {
         this.employees = new ArrayList<>();
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
     public void setHead(Employee head) throws RuntimeException {
-        if (head.getDepartment() == this) {
+        if (head == null){
+            this.head = null;
+        } else if (head.getDepartment() == this) {
             this.head = head;
         } else throw new RuntimeException("The employee doesn't work at this department.");
     }
 
-    protected Employee getHead() {
+    public Employee getHead() {
         return head;
     }
 
@@ -35,13 +37,33 @@ public class Department {
         if (employee.getDepartment() == null) {
             employees.add(employee);
             employee.setDepartment(this);
+        } else if (employee.getDepartment() == this){
+            if (this.isEmployee(employee)){
+                System.out.println("The employee is already working here.");
+            } else {
+                employees.add(employee);
+            }
         } else {
             System.out.println("The employee is already working at " + employee.getDepartment().getName() + " department.");
         }
     }
 
+    public void removeEmployee(Employee employee){
+        if(this.head == employee){
+            System.out.println("Cannot remove head of department.");
+        } else {
+            if (this.employees.remove(employee)) {
+                if (employee.getDepartment() != null) {
+                    employee.setDepartment(null);
+                }
+            } else {
+                System.out.println("No such employee in the department.");
+            }
+        }
+    }
+
     public List<Employee> getEmployees() {
-        return employees;
+        return new ArrayList<>(this.employees);
     }
 
     @Override

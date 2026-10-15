@@ -6,20 +6,38 @@ public class Employee {
     private String name;
     private Department department;
 
-    public Employee(String name, Department department){
-        this.name = name;
-        department.addEmployee(this);
-    }
-
     public Employee(String name){
         this.name = name;
     }
 
-    protected void setDepartment(Department department) {
-        this.department = department;
+    public void nullDepartment(){
+        Department olddepartment = this.department;
+        if (olddepartment != null){
+            if(olddepartment.getHead() != this){
+                this.department = null;
+                if (olddepartment.isEmployee(this)) olddepartment.removeEmployee(this);
+            } else {
+                System.out.println("Cannot remove head of department.");
+            }
+        } else {
+            System.out.println("Employee wasn't a part of any department to begin with.");
+        }
     }
 
-    protected Department getDepartment() {
+    public void setDepartment(Department department) {
+        if(department == null){
+            this.nullDepartment();
+        }else if (this.department == null) {
+            this.department = department;
+            if(!this.department.isEmployee(this)){
+                this.department.addEmployee(this);
+            }
+        } else {
+            System.out.println("Employee is already working at " + this.department.getName() + " department.");
+        }
+    }
+
+    public Department getDepartment() {
         return department;
     }
 
@@ -27,7 +45,7 @@ public class Employee {
         return this.department.getEmployees();
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
