@@ -21,4 +21,9 @@ public class Rookery {
             b.sing();
         }
     }
+
+    @Override
+    public String toString() {
+        return "Rookery has " + this.birds.size() + " bird(s)!";
+    }
 }

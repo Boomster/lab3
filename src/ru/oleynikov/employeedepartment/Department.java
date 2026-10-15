@@ -52,7 +52,9 @@ public class Department {
         for(Employee e : this.employees){
             departmentfull.append(e.getName()).append("\n");
         }
-        departmentfull.append("Руководитель: ").append(this.head.getName()).append("\n");
+        if (this.head != null) {
+            departmentfull.append("Руководитель: ").append(this.head.getName()).append("\n");
+        }
         return departmentfull.toString();
     }
 }
