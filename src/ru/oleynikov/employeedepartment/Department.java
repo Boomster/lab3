@@ -1,7 +1,6 @@
 package ru.oleynikov.employeedepartment;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Department {
@@ -26,7 +25,7 @@ public class Department {
         } else throw new RuntimeException("The employee doesn't work at this department.");
     }
 
-    protected Employee getHead() {
+    public Employee getHead() {
         return head;
     }
 
@@ -47,8 +46,8 @@ public class Department {
         } else if(this.head == employee){
             System.out.println("Cannot remove head of department.");
         } else {
-            this.employees.remove(employee);
-            employee.setDepartment(null);
+            if(this.employees.remove(employee)) employee.setDepartment(null);
+            else System.out.println("No such employee in the department.");
         }
     }
 
