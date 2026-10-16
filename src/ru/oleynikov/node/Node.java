@@ -11,7 +11,7 @@ public class Node {
         this.initialized = false;
     }
 
-    public Node(int value, Node parent){
+    private Node(int value, Node parent){
         this.value = value;
         this.parent = parent;
         this.initialized = true;
