@@ -34,7 +34,9 @@ public class Department {
     }
 
     public void addEmployee(Employee employee){
-        if (employee.getDepartment() == null) {
+        if (employee == null){
+            System.out.println("You are adding nothing?");
+        } else if (employee.getDepartment() == null) {
             employees.add(employee);
             employee.setDepartment(this);
         } else if (employee.getDepartment() == this){
@@ -49,7 +51,9 @@ public class Department {
     }
 
     public void removeEmployee(Employee employee){
-        if(this.head == employee){
+        if (employee == null){
+            System.out.println("You are removing nothing?");
+        } else if(this.head == employee){
             System.out.println("Cannot remove head of department.");
         } else {
             if (this.employees.remove(employee)) {
