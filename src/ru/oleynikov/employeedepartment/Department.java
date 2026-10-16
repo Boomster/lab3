@@ -19,7 +19,9 @@ public class Department {
     }
 
     public void setHead(Employee head) throws RuntimeException {
-        if (head.getDepartment() == this) {
+        if (head == null){
+            this.head = null;
+        } else if (head.getDepartment() == this) {
             this.head = head;
         } else throw new RuntimeException("The employee doesn't work at this department.");
     }
@@ -29,7 +31,9 @@ public class Department {
     }
 
     public void addEmployee(Employee employee){
-        if (employee.getDepartment() == null) {
+        if (employee == null){
+            System.out.println("You are adding nothing?");
+        } else if (employee.getDepartment() == null) {
             employees.add(employee);
             employee.setDepartment(this);
         } else {
@@ -38,7 +42,9 @@ public class Department {
     }
 
     public void removeEmployee(Employee employee){
-        if(this.head == employee){
+        if (employee == null){
+            System.out.println("You are removing nothing?");
+        } else if(this.head == employee){
             System.out.println("Cannot remove head of department.");
         } else {
             this.employees.remove(employee);

@@ -45,6 +45,7 @@ public class Main {
         System.out.println(test);
 
         //4.3+
+        /*
         System.out.println("4.3");
         Bird bird1 = new Cuckoo();
         Bird bird2 = new Sparrow();
@@ -68,6 +69,8 @@ public class Main {
         rookery.add(new Sparrow());
         rookery.callBirds();
         System.out.println(rookery);
+
+         */
 
         //6.2+
         System.out.println("6.2");
