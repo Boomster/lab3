@@ -38,7 +38,9 @@ public class Node {
         if (this.rightchild != null){
             return this.rightchild.getDeleteMaxRight();
         } else {
-            this.parent.leftchild = this.leftchild;
+            this.parent.leftchild = this.leftchild;//deletion
+            if(this.leftchild != null) this.leftchild.parent = this.parent;
+
             return this.value;
         }
     }
@@ -47,7 +49,9 @@ public class Node {
         if (this.rightchild != null){
             return this.rightchild.getDeleteMaxRight();
         } else {
-            this.parent.rightchild = this.leftchild;
+            this.parent.rightchild = this.leftchild;//deletion
+            if(this.leftchild != null) this.leftchild.parent = this.parent;
+
             return this.value;
         }
     }
@@ -65,12 +69,20 @@ public class Node {
                    this.value = 0;
                    this.initialized = false;
                }
-            } else if (this.leftchild == null) {//if 1 child
+            } else if (this.leftchild == null) {//if 1 child right
                 this.value = this.rightchild.value;
-                this.rightchild = null;
-            } else if (this.rightchild == null) {
+                Node tmpchild = this.rightchild;
+                this.leftchild = tmpchild.leftchild;
+                this.rightchild = tmpchild.rightchild;
+                if(this.leftchild != null) this.leftchild.parent = this;
+                if(this.rightchild != null) this.rightchild.parent = this;
+            } else if (this.rightchild == null) {//if 1 child left
                 this.value = this.leftchild.value;
-                this.leftchild = null;
+                Node tmpchild = this.leftchild;
+                this.leftchild = tmpchild.leftchild;
+                this.rightchild = tmpchild.rightchild;
+                if(this.leftchild != null) this.leftchild.parent = this;
+                if(this.rightchild != null) this.rightchild.parent = this;
             } else { // if 2 child
                 this.value = this.leftchild.getDeleteMaxLeft();//самое "правое" слева число
             }
